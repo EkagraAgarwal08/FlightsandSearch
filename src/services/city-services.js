@@ -5,9 +5,10 @@ class CityService {
     constructor() {
         this.cityRepository = new CityRepository();
     }
-
+     
     async CreateCity(data) {
         try {
+            // console.log(data)
             const city = await this.cityRepository.CreateCity(data);
             return city;
         } catch (error) {
@@ -40,6 +41,15 @@ class CityService {
         try {
             const city = await this.cityRepository.GetCity(cityId);
             return city;
+        } catch (error) {
+            console.log("Something went wrong at service layer");
+            throw {error};
+        }
+    }
+    async getAllCities(filter) {
+        try {
+            const cities = await this.cityRepository.getAllCities({name: filter.name});
+            return cities;
         } catch (error) {
             console.log("Something went wrong at service layer");
             throw {error};
