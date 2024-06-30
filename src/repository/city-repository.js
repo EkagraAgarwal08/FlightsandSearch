@@ -2,7 +2,7 @@ const { Op } = require('sequelize');
 const {City} = require('../models/index');
 
 
-class CityRepository {
+class CityRespository {
     async CreateCity({ name }) { 
         try {
             console.log(name)
@@ -80,4 +80,4 @@ class CityRepository {
 
 }
 
-module.exports = CityRepository;
+module.exports = CityRespository;

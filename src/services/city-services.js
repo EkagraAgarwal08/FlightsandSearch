@@ -1,15 +1,15 @@
 // services/city-services.js
-const { CityRepository } = require('../repository/index');
+const { CityRespository } = require('../repository/index');
 
 class CityService {
     constructor() {
-        this.cityRepository = new CityRepository();
+        this.cityRespository = new CityRespository();
     }
      
     async CreateCity(data) {
         try {
             // console.log(data)
-            const city = await this.cityRepository.CreateCity(data);
+            const city = await this.cityRespository.CreateCity(data);
             return city;
         } catch (error) {
             console.log("Something went wrong at service layer");
@@ -19,7 +19,7 @@ class CityService {
 
     async DeleteCity(cityId) {
         try {
-            const response = await this.cityRepository.DeleteCity(cityId);
+            const response = await this.cityRespository.DeleteCity(cityId);
             return response;
         } catch (error) {
             console.log("Something went wrong at service layer");
@@ -29,7 +29,7 @@ class CityService {
 
     async UpdateCity(cityId, data) {
         try {
-            const city = await this.cityRepository.UpdateCity(cityId, data);
+            const city = await this.cityRespository.UpdateCity(cityId, data);
             return city;
         } catch (error) {
             console.log("Something went wrong at service layer");
@@ -39,7 +39,7 @@ class CityService {
 
     async GetCity(cityId) {
         try {
-            const city = await this.cityRepository.GetCity(cityId);
+            const city = await this.cityRespository.GetCity(cityId);
             return city;
         } catch (error) {
             console.log("Something went wrong at service layer");
@@ -48,7 +48,7 @@ class CityService {
     }
     async getAllCities(filter) {
         try {
-            const cities = await this.cityRepository.getAllCities({name: filter.name});
+            const cities = await this.cityRespository.getAllCities({name: filter.name});
             return cities;
         } catch (error) {
             console.log("Something went wrong at service layer");
